@@ -61,6 +61,10 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
   font-family: "fira code";
   color: var(--color-text);
   background: var(--color-background);
@@ -71,9 +75,11 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
 }
 
 main {
+  flex: 1;
   margin-top: 6em;
 }
 

@@ -12,11 +12,8 @@
 <style>
 
 .about {
-  position: fixed;
   margin: 0 15em;
   text-align: center;
-  border-radius: 10px;
-  height: 70vh;
 }
 
 </style>
