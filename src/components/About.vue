@@ -5,8 +5,18 @@ export default {
   name: 'About',
   data() {
     return {
+      email: null,
+      message: null,
       user: {}
     }
+  },
+  methods: {
+    sendEmail: function(e) {
+      e.preventDefault()
+      if(this.email && this.message){
+        window.open(`mailto:${this.email}?subject=Portfolio subject.&body=${this.message}`);
+      }
+    } 
   },
   created: async function(){
     this.user = await api.fetchUser()
@@ -24,15 +34,13 @@ export default {
     </div>
     <div id="brief-desc">
       <p>Marcos is a dedicated person to the area of ​​Information Technology. He has a Bachelor's degree in Computer Science from the Federal Institute of Brasília. He has professional experience acquired through academic and freelance competitions, and also expanded his knowledge through internships carried out throughout his academic journey. His notable qualities include proactivity, resilience and dedication, characteristics that make him stand out in the field of technology.</p>
-      <form method="post" @submit="getInfo">
+      <form method="post" @submit="sendEmail">
         <div class="form-container">
           <span style="padding-right: 2em; color: var(--color-heading); font-size: 1.2em; ">Contact me</span>
-          <input style="width: 30em;" type="email" placeholder="example@org.com"/>
+          <input style="width: 30em;" name="email" v-model="email" type="email" placeholder="example@org.com"/>
         </div>
-        <textarea rows="10" placeholder="Send your message.."></textarea>
-        <button id="icon">
-          <span style="color: var(--color-heading);">Send</span>
-        </button>
+        <textarea rows="10" name="message" v-model="message" placeholder="Send your message.."></textarea>
+        <input id="button" style="color: var(--color-heading);" type="submit" value="Send" />
       </form>
     </div>
   </div>
@@ -40,14 +48,13 @@ export default {
 
 <style scoped>
 
-button {
+#button {
   font-family: inherit;
   font-size: 1em;
   margin-top: 1em;
   display: flex;
   flex-direction: row;
   float: right;
-  align-items: center;
   justify-content: center;
   background: var(--color-secondary);
   border: none;
@@ -56,9 +63,9 @@ button {
   height: 40px;
 }
 
-button:hover {
+#button:hover {
   cursor: pointer;
-  border: 3px solid var(--color-heading);
+  border: 1px solid var(--color-heading);
   transition: 0.3s all ease-in-out;
 }
 
