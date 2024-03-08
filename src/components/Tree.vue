@@ -63,7 +63,7 @@ import SupportIcon from './icons/IconSupport.vue'
     <h4>Caronas Buruger</h4>
     <small>Freelancer</small>
     <br><br>
-    I worked as a frontend developer with the aim of making the application responsive, consistent and interactive with the user. The entire application was developed in pure PHP and the server was hosted by Apache.
+    I worked as a frontend developer on <a href="https://www.caronasburger.com.br/">Caronas Burguer</a> with the aim of making the application responsive, consistent and interactive with the user. The entire application was developed in pure PHP and the server was hosted by Apache.
   </TreeItem>
 
   <TreeItem title="teste2">
