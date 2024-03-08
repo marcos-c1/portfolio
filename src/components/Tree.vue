@@ -9,53 +9,61 @@ import SupportIcon from './icons/IconSupport.vue'
 </script>
 
 <template>
-  <TreeItem title="documentation">
+  <TreeItem title="resume">
     <template #icon>
       <DocumentationIcon />
     </template>
-    <template #heading>Documentation</template>
+    <template #heading>Resume</template>
 
-    Vue’s
-    <a href="https://vuejs.org/" target="_blank" rel="noopener">official documentation</a>
-    provides you with all information you need to get started.
+    Hi! My name is <u>Marcos Campos</u> and I have bachelor's degree in Computer Science in the <a href="https://www.ifb.edu.br/" target="_blank" rel="noopener">Federal Institute of Brasília</a>. I got addicted to programming when i was 17 years old since then I had been doing a lot of personal projects just for fun! I got a little bit of experience through academic course, programming competitions, and also with freelancers jobs. Some of the knowledge came from internships did when i was in college. I guess my curiosity is something that guides me through the tecnology field, I had to solve as many as problems i can, even those that didnt have an answer (in polynomial time hehe).
   </TreeItem>
 
-  <TreeItem title="tooling">
+  <TreeItem title="experience-1">
     <template #icon>
       <ToolingIcon />
     </template>
-    <template #heading>Tooling</template>
+    <template #heading>Experience</template>
 
-    This project is served and bundled with
-    <a href="https://vitejs.dev/guide/features.html" target="_blank" rel="noopener">Vite</a>. The
-    recommended IDE setup is
-    <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VSCode</a> +
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank" rel="noopener">Volar</a>. If
-    you need to test your components and web pages, check out
-    <a href="https://www.cypress.io/" target="_blank" rel="noopener">Cypress</a> and
-    <a href="https://on.cypress.io/component" target="_blank" rel="noopener"
-      >Cypress Component Testing</a
-    >.
+    <h4>Public Ministry of the Federal District and Territories</h4>
+    <small>Internship</small>
+    <br><br>
+    I worked in the Diligence department at <a href="https://www.mpdft.mp.br/portal/" target="_blank" rel="noopener">Public Ministry of the Federal District and Territories</a>, my purpose was to update the processual data which was physical processes in government system. In addition, they perform functions related to archiving cases and forwarding them to the appropriate Civil Court.
 
     <br />
-
-    More instructions are available in <code>README.md</code>.
+    
   </TreeItem>
 
-  <TreeItem title="teste">
+  <TreeItem title="experience-2">
     <template #icon>
-      <EcosystemIcon />
+      <ToolingIcon/>
     </template>
-    <template #heading>Ecosystem</template>
 
-    Get official tools and libraries for your project:
-    <a href="https://pinia.vuejs.org/" target="_blank" rel="noopener">Pinia</a>,
-    <a href="https://router.vuejs.org/" target="_blank" rel="noopener">Vue Router</a>,
-    <a href="https://test-utils.vuejs.org/" target="_blank" rel="noopener">Vue Test Utils</a>, and
-    <a href="https://github.com/vuejs/devtools" target="_blank" rel="noopener">Vue Dev Tools</a>. If
-    you need more resources, we suggest paying
-    <a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">Awesome Vue</a>
-    a visit.
+    <h4>Brazilian Hospital Services Company (EBSERH)</h4>
+    <small>Internship</small>
+    <br><br>
+    I worked in the Personnel Analysis and Dimensioning Sector at <a href="https://www.gov.br/ebserh/pt-br" target="_blank" rel="noopener">Brazilian Hospital Services Company</a> in the Data Science area, with the objective of providing efficient analytical tools based on the manipulation of data from the data warehouse.
+  </TreeItem>
+  
+  <TreeItem title="experience-3">
+    <template #icon>
+      <ToolingIcon/>
+    </template>
+
+    <h4>Union Court of Accounts (TCU)</h4>
+    <small>Internship</small>
+    <br><br>
+    I worked as a backend developer on <a href="https://portal.tcu.gov.br/inicio/" target="_blank" rel="noopener">Union Court of Accounts</a> Radex integrative system using pure JavaScript. The agile methodology applied was SCRUM; The main objective of the application was to provide the users an interactive interface around the deliberations of each process carried out by the control minister's committees.
+  </TreeItem>
+
+  <TreeItem title="experience-4">
+    <template #icon>
+      <ToolingIcon />
+    </template>
+
+    <h4>Caronas Buruger</h4>
+    <small>Freelancer</small>
+    <br><br>
+    I worked as a frontend developer with the aim of making the application responsive, consistent and interactive with the user. The entire application was developed in pure PHP and the server was hosted by Apache.
   </TreeItem>
 
   <TreeItem title="teste2">

@@ -8,12 +8,13 @@ import Logo from "./icons/Logo.vue";
 <template>
   <header id="header">
     <Logo id="logo-photo"/>
-    <h3 id="logo">Marcos</h3>
+     <h3 id="logo">Marcos</h3>
+     <small>marcos-c1</small>
     <ul>
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/about">About</RouterLink>
       <RouterLink to="/projects">Projects</RouterLink>
-      <RouterLink to="/resume">Resume</RouterLink>
+      <RouterLink to="/resume">Curriculum</RouterLink>
     </ul>
     <div id="social-media">
       <IconItem site="linkedin" link="https://www.linkedin.com/in/marcos-bezerra-campos-981927196/">
@@ -41,6 +42,13 @@ import Logo from "./icons/Logo.vue";
   margin:0 13em;
   width: 70px;
   height: 70px;
+}
+
+small {
+  position: absolute;
+  left: 0;
+  top: 50px;
+  margin:0 21em;
 }
 #logo {
   position: absolute;

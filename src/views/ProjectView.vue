@@ -1,70 +1,74 @@
-<template>
-  <div id="container">
-    <div id="card">
-      <h1>Project name</h1>
-      <p>Description</p>
-      <small>Date</small>
-    </div>
-    <div id="card">
-      <h1>Project name</h1>
-      <p>Description</p>
-      <small>Date</small>
-    </div>
-    <div id="card">
-      <h1>Project name</h1>
-      <p>Description</p>
-      <small>Date</small>
-    </div>
-    <div id="card">
-      <h1>Project name</h1>
-      <p>Description</p>
-      <small>Date</small>
-    </div>
-    <div id="card">
-      <h1>Project name</h1>
-      <p>Description</p>
-      <small>Date</small>
-    </div>
-    <div id="card">
-      <h1>Project name</h1>
-      <p>Description</p>
-      <small>Date</small>
-    </div>
-    <div id="card">
-      <h1>Project name</h1>
-      <p>Description</p>
-      <small>Date</small>
-    </div>
-  </div>
-</template>
+<script lang="ts">
+import api from "../service/api.ts"
 
-<script>
-import { fetchRepos } from "../service/api.ts"
+function parseDate(str_date) {
+  return new Date(Date.parse(str_date));
+}
 export default {
   name: 'ProjectView',
-  data: {
-    repos: Promise
+  data() {
+    return {
+      repos: [] 
+    }
   },
-  mounted: async function(){
-    this.repos = await fetchRepos() 
+  created: async function(){
+    this.repos = await api.fetchRepos()
   }
 }
+
 </script>
+
+<template>
+  <main>
+    <h1 id="title">Projects</h1>
+    <div id="container">
+      <div id="card" v-for="r in repos" :key="r.id">
+        <h1>
+          <a :href="r.html_url" target="_blank" rel="noopener">{{r.name}}</a>
+        </h1>
+        <p>
+          {{r.description ? r.description : "No description provided."}}
+        </p>
+        <small>
+          {{ new Date(Date.parse(r.created_at)).toLocaleString() }}
+        </small>
+      </div>
+    </div>
+  </main>
+</template>
+
 <style scoped>
 
+#title {
+  color: var(--color-heading);
+  text-align: center;
+  padding: 1em 0;
+}
 #container {
-  padding-top: 10em;
   position: relative;
   display: grid;
+  justify-content: end;
   grid-template-columns: repeat(3, 1fr);
   gap: 5em;
   margin: 0 15em;
 }
+
 #card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  padding: 1em 2em;
+  color: var(--color-text);
   background: var(--color-background);
   border-radius: 8px;
   border: 1px solid var(--color-border);
   width: 400px;
-  height: 250px;
+  height: 280px;
 }
+
+#card > p {
+  color: var(--color-heading);
+}
+
 </style>

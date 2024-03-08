@@ -1,15 +1,22 @@
+<script setup lang="ts">
+  import About from "../components/About.vue"
+</script>
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <main style="padding-top: 5em;">
+    <div class="about">
+      <About />
+    </div>
+  </main>
 </template>
 
 <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+
+.about {
+  position: fixed;
+  margin: 0 15em;
+  text-align: center;
+  border-radius: 10px;
+  height: 70vh;
 }
+
 </style>

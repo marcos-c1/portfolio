@@ -30,17 +30,6 @@
   background: var(--color-secondary)
 }
 
-.hidden {
-  opacity: 0;
-  transition: 0.5 all ease-in;
-}
-
-.show {
-  opacity: 1;
-  transition: 0.5 all ease-in;
-
-}
-
 .details {
   flex: 1;
   align-self: center;
