@@ -1,6 +1,6 @@
 <template>
   <div class="item"> 
-    <i> 
+    <i>
       <slot name="icon"></slot>
     </i>
     <div class="details" :id="title"> 
@@ -19,6 +19,7 @@
 </script>
 
 <style scoped>
+
 .item {
   margin: 0 15em;
   height: 250px;
@@ -48,7 +49,7 @@ i {
 
 i:hover {
   cursor: pointer;
-  background: var(--color-secondary);
+  border-color: var(--color-secondary);
 }
 
 h3 {
@@ -92,7 +93,6 @@ h3 {
     top: calc(50% + 25px);
     height: 100%;
   }
-
   .item:first-of-type:before {
     display: none;
   }

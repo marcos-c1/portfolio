@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CV from "../assets/files/curriculo_marcos.pdf"
+import CV from "../assets/files/curriculo_marcos_english.pdf"
 </script>
 <template>
   <main>

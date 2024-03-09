@@ -34,6 +34,7 @@ import Logo from "./icons/Logo.vue";
 <style scoped>
 
 #logo-photo {
+  animation: levitate 3s infinite backwards; 
   position: absolute;
   color: var(--color-secondary);
   left: 0;
@@ -55,6 +56,30 @@ small {
   color: var(--color-heading);
   left: 0;
   margin:0 15em;
+}
+
+@keyframes levitate {
+  0% {
+    padding-bottom: 0;
+  }
+  25% {
+    padding-bottom: 1px;
+    width: 72px;
+    height: 72px;
+  }
+  50% {
+    padding-bottom: 3px;
+  }
+  75% {
+    padding-bottom: 8px;
+      width: 72px;
+      height: 72px;
+  }
+  100% {
+    padding-bottom: 0;
+     width: 70px;
+     height: 70px;
+  }
 }
 
 a {
