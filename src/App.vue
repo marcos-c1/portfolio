@@ -20,6 +20,8 @@ import Footer from './components/Footer.vue'
 }
 
 body {
+  --bg-grid-color: #3d4852;
+  background-color: rgba(31, 36, 41, 1);
   color: var(--color-text);
   padding-top: 10em;
   line-height: 1.5;
