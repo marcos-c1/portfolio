@@ -59,13 +59,13 @@ export default {
      <small>marcos-c1</small>
     </div>
     <ul>
-      <div class="mode-container">
-        <li v-if="isDarkTheme" @click="toggleTheme">
+      <div class="mode-container" @click="toggleTheme">
+        <li v-if="isDarkTheme">
           <i>
             <Light />
           </i>
         </li>
-        <li v-else @click="toggleTheme"> 
+        <li v-else> 
           <i>
             <Dark/>
           </i>
@@ -109,12 +109,14 @@ export default {
   align-items: end; 
   background-color: var(--color-border);
   border-radius: 2em;
-  padding: 0 10px;
   margin-right: 2em;
 }
 
 .mode-container > li {
   margin-top: 10px;
+  padding: 0 10px;
+  width: inherit;
+  height: inherit;
 }
 
 .mode-container:hover {
