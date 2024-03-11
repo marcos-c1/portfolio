@@ -9,16 +9,8 @@ import SupportIcon from './icons/IconSupport.vue'
 </script>
 
 <template>
+  <h1 id="title">Professional Background</h1>
   <div style="border-bottom: 1px solid var(--color-border)">
-    <TreeItem title="resume">
-      <template #icon>
-        <DocumentationIcon />
-      </template>
-      <template #heading>Resume</template>
-
-      Hi! My name is <u>Marcos Campos</u> and I have bachelor's degree in Computer Science in the <a href="https://www.ifb.edu.br/" target="_blank" rel="noopener">Federal Institute of Brasília (IFB)</a>. I got addicted to programming when i was 17 years old since then I had been doing a lot of personal projects just for fun! I got a little bit of experience through academic course, programming competitions, and also with freelancers jobs. Some of the knowledge came from internships did when i was in college. I guess my curiosity is something that guides me through the tecnology field, I had to solve as many as problems i can, even those that didnt have an answer (in polynomial time hehe).
-    </TreeItem>
-
     <TreeItem title="experience-1">
       <template #icon>
         <ToolingIcon />
@@ -66,37 +58,14 @@ import SupportIcon from './icons/IconSupport.vue'
       <br><br>
       I worked as a frontend developer on <a href="https://www.caronasburger.com.br/">Caronas Burguer</a> with the aim of making the application responsive, consistent and interactive with the user. The entire application was developed in pure PHP and the server was hosted by Apache.
     </TreeItem>
-
-    <TreeItem title="teste2">
-      <template #icon>
-        <CommunityIcon />
-      </template>
-      <template #heading>Community</template>
-
-      Got stuck? Ask your question on
-      <a href="https://chat.vuejs.org" target="_blank" rel="noopener">Vue Land</a>, our official
-      Discord server, or
-      <a href="https://stackoverflow.com/questions/tagged/vue.js" target="_blank" rel="noopener"
-        >StackOverflow</a
-      >. You should also subscribe to
-      <a href="https://news.vuejs.org" target="_blank" rel="noopener">our mailing list</a> and follow
-      the official
-      <a href="https://twitter.com/vuejs" target="_blank" rel="noopener">@vuejs</a>
-      twitter account for latest news in the Vue world.
-    </TreeItem>
-
-    <TreeItem title="support">
-      <template #icon>
-        <SupportIcon />
-      </template>
-      <template #heading>Support Vue</template>
-
-      As an independent project, Vue relies on community backing for its sustainability. You can help
-      us by
-      <a href="https://vuejs.org/sponsor/" target="_blank" rel="noopener">becoming a sponsor</a>.
-    </TreeItem>
   </div>
 </template>
 <style scoped>
+
+#title {
+  color: var(--color-heading);
+  text-align: center;
+  padding: 1em 0;
+}
 
 </style>

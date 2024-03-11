@@ -1,16 +1,76 @@
-<script setup lang="ts">
+<script> 
 import Github from "./icons/IconGithub.vue";
 import Linkedin from "./icons/IconLinkedin.vue";
 import IconItem from "./IconItem.vue";
 import Logo from "./icons/Logo.vue";
+import Dark from "./icons/IconDark.vue";
+import Light from "./icons/IconLight.vue";
+
+export default {
+    name: "Menu",
+    components: {
+      Github,
+      Linkedin,
+      IconItem,
+      Logo,
+      Dark,
+      Light
+    },
+    data() {
+      return {
+        isDarkTheme: Boolean 
+      }
+    },
+    methods: {
+      toggleTheme (e) {
+        if (document.documentElement.classList.contains("light")) {
+          document.documentElement.classList.remove("light")
+          document.documentElement.classList.add("dark")
+          this.isDarkTheme = true
+        } else if (document.documentElement.classList.contains("dark")) {
+          document.documentElement.classList.remove("dark")
+          document.documentElement.classList.add("light")
+          this.isDarkTheme = false 
+        } else {
+          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add("light")
+            this.isDarkTheme = true 
+          } else {
+            document.documentElement.classList.add("dark")
+            this.isDarkTheme = false 
+          }
+        }
+      },
+      checkTheme() {
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+      }
+    },
+    created: function(){
+      this.isDarkTheme = this.checkTheme()
+    },
+}
 </script>
 
 <template>
   <header id="header">
-    <Logo id="logo-photo"/>
+    <div class="header-container">
+     <Logo id="logo-photo"/>
      <h3 id="logo">Marcos</h3>
      <small>marcos-c1</small>
+    </div>
     <ul>
+      <div class="mode-container">
+        <li v-if="isDarkTheme" @click="toggleTheme">
+          <i>
+            <Light />
+          </i>
+        </li>
+        <li v-else @click="toggleTheme"> 
+          <i>
+            <Dark/>
+          </i>
+        </li>
+      </div>
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/about">About</RouterLink>
       <RouterLink to="/projects">Projects</RouterLink>
@@ -33,26 +93,50 @@ import Logo from "./icons/Logo.vue";
 
 <style scoped>
 
+.header-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: absolute;
+  left: 0;
+  align-items: center; 
+}
+
+.mode-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: end; 
+  background-color: var(--color-border);
+  border-radius: 2em;
+  padding: 0 10px;
+  margin-right: 2em;
+}
+
+.mode-container > li {
+  margin-top: 10px;
+}
+
+.mode-container:hover {
+  cursor: pointer;
+  background-color: var(--color-heading);
+}
+
 #logo-photo {
   animation: levitate 3s infinite backwards; 
   position: absolute;
   color: var(--color-secondary);
   left: 0;
-  top: 10px;
   font-weight: bolder;
   margin:0 13em;
   width: 70px;
   height: 70px;
-}
-
-small {
-  position: absolute;
+} small {
   left: 0;
   top: 50px;
   margin:0 21em;
 }
 #logo {
-  position: absolute;
   color: var(--color-heading);
   left: 0;
   margin:0 15em;
@@ -100,7 +184,7 @@ a:hover {
   top: 0;
   display: flex;
   overflow: hidden;
-  justify-content: flex-end;
+  justify-content: flex-end; 
   flex-direction: row;
   position: fixed;
   z-index: 1;
