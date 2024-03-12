@@ -147,6 +147,7 @@ export default {
   left: 0;
   align-items: center; 
   white-space: nowrap;
+  user-select: none;
 }
 
 .page-container {

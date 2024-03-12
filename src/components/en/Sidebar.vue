@@ -172,6 +172,7 @@ li {
 }
 
 aside {
+  user-select: none;
   background: transparent;
   backdrop-filter: blur(5px);
   top: 0;

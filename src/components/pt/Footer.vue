@@ -11,6 +11,8 @@ const location = useRoute();
 <style scoped>
 
 .footer {
+  position: absolute;
+  bottom: 0;
   text-align: center;
   border: 1px solid var(--color-border);
   margin-top: 2em;
