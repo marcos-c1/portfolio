@@ -67,7 +67,7 @@ export default {
   },
   mounted: function(){
     this.isDarkTheme = this.checkTheme()
-    this.isEnglish = false 
+    this.isEnglish = true 
   },
 
 }
