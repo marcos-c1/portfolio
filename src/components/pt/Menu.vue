@@ -5,23 +5,25 @@ import IconItem from "./IconItem.vue";
 import Logo from "./../icons/Logo.vue";
 import Dark from "./../icons/IconDark.vue";
 import Light from "./../icons/IconLight.vue";
+import Menu from "./../icons/IconMenu.vue";
 import { useRouter } from 'vue-router';
+import { ref } from 'vue';
 
 
 export default {
-    name: "Menu",
+    name: "EnglishMenu",
     components: {
       Github,
       Linkedin,
       IconItem,
       Logo,
       Dark,
-      Light
+      Light,
+      Menu
     },
     data() {
       return {
         isDarkTheme: Boolean,
-        isEnglish: Boolean,
         router: useRouter(),
         path: "" 
       }
@@ -59,27 +61,29 @@ export default {
       changeToEnglish(){
         const path = this.router.currentRoute.path
         if(path !== '/en'){
-          this.router.push('/en') 
           this.isEnglish = !this.isEnglish 
-          console.log(this.isEnglish)
+          this.router.push('/en') 
         }
       }
     },
     mounted: function(){
       this.isDarkTheme = this.checkTheme()
-      this.isEnglish = false
+      this.isEnglish = false 
     },
 }
 </script>
 
 <template>
   <header id="header">
-    <div class="header-container">
-     <Logo id="logo-photo"/>
-     <h3 id="logo">Marcos</h3>
-     <small>marcos-c1</small>
-    </div>
     <ul>
+      <div class="header-container">
+       <Logo id="logo-photo"/>
+       <h3 id="logo">Marcos</h3>
+       <small>marcos-c1</small>
+      </div>
+      <i>
+        <Menu id="hamburguer-menu" />
+      </i>
       <div class="page-container">
         <div id="pt-btn" :class="!isEnglish ? 'active' : ''" @click="changeToPortuguese">
           <span>
@@ -92,6 +96,7 @@ export default {
           </span>
         </div>
       </div>
+      
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/sobre-mim">Sobre mim</RouterLink>
       <RouterLink to="/projetos">Projetos</RouterLink>
@@ -133,6 +138,7 @@ export default {
   position: absolute;
   left: 0;
   align-items: center; 
+  white-space: nowrap;
 }
 
 .page-container {
@@ -143,6 +149,14 @@ export default {
   border-radius: 10px;
   margin-right: 2em;
   padding: 5px 10px;
+}
+
+#hamburguer-menu {
+  display: none;
+  background-color: var(--color-border);
+  border-radius: 10px;                  
+  padding: 5px;
+  margin-right: 2em;
 }
 
 #pt-btn {
@@ -194,24 +208,32 @@ export default {
   background-color: var(--color-heading);
 }
 
+#hamburguer-menu:hover {
+  cursor: pointer;
+  background-color: var(--color-secondary);
+
+}
+
 #logo-photo {
   animation: levitate 3s infinite backwards; 
   position: absolute;
   color: var(--color-secondary);
   left: 0;
   font-weight: bolder;
-  margin:0 13em;
+  margin-left: 13em;
   width: 70px;
   height: 70px;
-} small {
+} 
+
+small {
   left: 0;
   top: 50px;
-  margin:0 21em;
+  margin-left: 21em;
 }
 #logo {
   color: var(--color-heading);
   left: 0;
-  margin:0 15em;
+  margin-left: 15em;
 }
 
 @keyframes levitate {
@@ -272,9 +294,61 @@ ul {
   display: flex;
   flex-direction: row;
   list-style: none;
+  align-items: center;
 }
 
 #social-media {
   display: flex;
 }
+
+@media(max-width: 1580px){
+  #logo {
+    margin-left: 9em;
+  } 
+
+  #logo-photo {
+    margin-left: 6em;
+  }
+  small {
+    margin-left: 13em;
+  }
+}
+
+@media(max-width: 1420px){
+  #logo {
+    font-size: 1em;
+
+  }
+
+  a {
+    display: none;
+  }
+  #hamburguer-menu {
+    display: block;
+  }
+  #header {
+    justify-content: center;
+  }
+  .header-container {
+    position: relative;
+    padding-right: 15em;
+  }
+}
+
+@media(max-width: 1000px){
+  #social-media {
+    display: none;
+  }
+}
+
+@media(max-width: 800px){
+  .mode-container {
+    display: none;
+  }
+  .page-container {
+    display: none;
+  } 
+}
+
+
 </style>

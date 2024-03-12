@@ -2,7 +2,7 @@
   <div id="container">
      <div id="desc">
        <h1>A backend developer passionate about algorithms.</h1>
-       <RouterLink id="cv" to="/resume">Check out my CV</RouterLink>
+       <RouterLink id="cv" to="/en/resume">Check out my CV</RouterLink>
      </div>
   </div>
 </template>
@@ -81,6 +81,28 @@ a:hover {
 #cv:hover {
   cursor: pointer;
   font-weight: bolder;
+}
+
+@media(max-width: 1580px){
+  #desc > h1 {
+    font-size: 2em;
+  }
+}
+
+@media(max-width: 1000px){
+  #desc > h1 {
+    font-size: 1.5em;
+  }
+}
+
+@media(max-width: 800px){
+  #desc > h1 {
+    font-size: 1.2em;
+  }
+
+  #cv {
+    font-size: 0.9em;
+  }
 }
 
 </style>

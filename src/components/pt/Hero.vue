@@ -83,4 +83,26 @@ a:hover {
   font-weight: bolder;
 }
 
+@media(max-width: 1580px){
+  #desc > h1 {
+    font-size: 2em;
+  }
+}
+
+@media(max-width: 1000px){
+  #desc > h1 {
+    font-size: 1.5em;
+  }
+}
+
+@media(max-width: 800px){
+  #desc > h1 {
+    font-size: 1.2em;
+  }
+
+  #cv {
+    font-size: 0.9em;
+  }
+}
+
 </style>
