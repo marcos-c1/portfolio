@@ -31,4 +31,22 @@ import Footer from '../../components/en/Footer.vue'
   height: 100%;
 }
 
+@media(max-width: 1400px) {
+  #container {
+    margin: 0 10em;
+  }
+}
+
+@media(max-width: 1200px) {
+  #container {
+    margin: 0 5em;
+  }
+}
+
+@media(max-width: 1400px) {
+  #container {
+    margin: 0;
+  }
+}
+
 </style>

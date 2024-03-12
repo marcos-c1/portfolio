@@ -6,7 +6,7 @@
 </script>
 <template>
   <Menu />
-  <main style="padding-top: 5em;">
+  <main style="padding-top: 2em;">
     <div class="about">
       <About />
     </div>
@@ -19,11 +19,6 @@
 .about {
   margin: 0 15em;
   text-align: center;
-}
-
-.footer {
-  position: absolute;
-  bottom: 0;
 }
 
 </style>

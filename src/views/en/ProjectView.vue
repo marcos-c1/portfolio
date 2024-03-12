@@ -57,7 +57,7 @@ export default {
   display: grid;
   justify-content: end;
   grid-template-columns: repeat(3, 1fr);
-  gap: 5em;
+  gap: 2em;
   margin: 0 15em;
 }
 
@@ -77,6 +77,68 @@ export default {
 
 #card > p {
   color: var(--color-heading);
+}
+
+@media(max-width: 1600px) {
+  #container {
+    margin: 0 10em;
+  }
+}
+
+@media(max-width: 1500px) {
+  #container {
+    margin: 0 5em;
+    gap: 2em;
+  }
+}
+
+@media(max-width: 1400px) {
+  #container {
+    margin: 0;
+    gap: 1em;
+  }
+}
+
+@media(max-width: 1250px) {
+  #container {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 10em;
+  }
+}
+
+@media(max-width: 1250px) {
+  #card {
+    width: 300px;
+  }
+}
+
+@media(max-width: 1000px) {
+  #container {
+    margin-right: 0;
+    margin-left: 4em;
+  }
+
+  #card h1 {
+    font-size: 1.8em;
+  }
+
+  #card p {
+    font-size: 0.8em;
+  }
+}
+
+@media(max-width: 650px){
+  #container {
+    grid-template-columns: 1fr; 
+    margin: 0 5em;
+  }
+}
+
+@media(max-width: 400px){
+  #container {
+    grid-template-columns: 1fr; 
+    margin-right: 1em;
+  }
 }
 
 </style>

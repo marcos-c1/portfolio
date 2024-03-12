@@ -131,4 +131,36 @@ textarea {
   height: 400px;
   border-radius: 50%;
 }
+
+@media(max-width: 1600px){
+  #profile-pic {
+    width: 300px;
+    height: 300px;
+  }
+  #my-image {
+    margin-top: 0;
+  }
+  #brief-desc > p {
+    font-size: 1em;
+    padding-top: 2em;
+  }
+}
+
+@media(max-width: 1000px) {
+  #profile-pic {
+    width: 250px;
+    height: 250px;
+  }
+  
+  #brief-desc > p {
+    font-size: 0.9em;
+  }
+}
+
+@media(max-width: 750px){
+  #container {
+    grid-template-columns: 1fr; 
+  }
+} 
+
 </style>

@@ -7,7 +7,9 @@
       <h3> 
         <slot name="heading"></slot>
       </h3>
-      <slot></slot>
+      <p id="description">
+        <slot></slot>
+      </p>
     </div>
   </div>
 </template>
@@ -101,4 +103,42 @@ h3 {
     display: none;
   }
 }
+
+@media(max-width: 1200px){
+  #title {
+    font-size: 0.9em;
+    color: var(--color-heading);
+  }
+  
+  .item {
+    margin: 0 10em;
+    height: 250px;
+  }
+  p {
+    font-size: 0.9em;
+  }  
+}
+
+@media(max-width: 1024px) {
+  .item {
+    padding-top: 5em;
+  }
+}
+
+@media(max-width: 850px){
+  #description {
+    font-size: 0.9em;
+  }
+  .item {
+    margin: 0 5em;
+  }
+
+}
+
+@media(max-width: 670px){
+  .item {
+    margin-top: 2em;
+  }
+}
+
 </style>

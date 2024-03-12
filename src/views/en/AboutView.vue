@@ -6,7 +6,7 @@ import Footer from '../../components/en/Footer.vue'
 </script>
 <template>
   <Menu />
-  <main style="padding-top: 5em;">
+  <main style="padding-top: 2em;">
     <div class="about">
       <About />
     </div>

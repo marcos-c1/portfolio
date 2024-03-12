@@ -87,4 +87,22 @@ import IconVue from "./../icons/tools/IconVue.vue"
   padding: 1em 0;
 }
 
+@media(max-width: 1250px){
+  #container {
+    margin: 0 10em;
+  }
+}
+
+@media(max-width: 1250px){
+  #container {
+    margin: 0 5em;
+  }
+}
+
+@media(max-width: 500px) {
+  #container {
+    margin: 0;
+  }
+}
+
 </style>

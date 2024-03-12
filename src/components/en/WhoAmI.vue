@@ -22,5 +22,29 @@ p {
   border-bottom: 1px solid var(--color-border);
 }
 
+@media(max-width: 850px){
+  #container {
+    padding: 0 10em;
+  }
+}
+
+@media(max-width: 850px){
+  #container {
+    padding: 0 5em;
+    padding-bottom: 2em;
+  }
+}
+
+@media(max-width: 650px){
+  #container {
+    padding: 0 5em;
+    padding-bottom: 2em;
+  }
+
+
+  p {
+    font-size: 0.9em;
+  }
+}
 
 </style>
