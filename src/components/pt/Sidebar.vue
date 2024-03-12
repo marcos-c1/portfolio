@@ -17,10 +17,12 @@ export default {
     Dark,
     Close 
   },
+  props: {
+    isExpanded: Boolean
+  },
   data() {
     return {
       isDarkTheme: Boolean,
-      isExpanded: Boolean,
       router: useRouter(),
       path: "" 
     }
@@ -62,23 +64,16 @@ export default {
         this.router.push('/en') 
       }
     },
-    toggleMenu() {
-      this.isExpanded = !this.isExpanded
-    }
   },
   mounted: function(){
     this.isDarkTheme = this.checkTheme()
     this.isEnglish = false 
-    this.isExpanded = true 
   },
 
 }
 </script>
 <template>
-  <aside v-if="isExpanded">
-    <i>
-      <Close id="close" @click="toggleMenu"/>
-    </i>
+  <aside v-show="isExpanded">
     <ul id="links">
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/sobre-mim">Sobre mim</RouterLink>
@@ -135,7 +130,12 @@ li {
   display: flex;
   flex-direction: column;
   margin: 1em;
+  margin-top: 3em;
   font-weight: bolder;
+}
+
+#links > a {
+  padding-top: 1em;
 }
 
 #icons {
@@ -220,16 +220,5 @@ aside {
 .active {
   color: var(--color-secondary);
 }
-
-#close {
-  border-radius: 10px;                  
-  margin: 5px;
-  padding: 10px;
-}
-
-#close:hover {
-  cursor: pointer;
-}
-
 
 </style>

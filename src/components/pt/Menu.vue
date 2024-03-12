@@ -7,8 +7,8 @@ import Dark from "./../icons/IconDark.vue";
 import Light from "./../icons/IconLight.vue";
 import Menu from "./../icons/IconMenu.vue";
 import Sidebar from "./../pt/Sidebar.vue";
+import Close from "./../icons/IconClose.vue";
 import { useRouter } from 'vue-router';
-import { ref } from 'vue';
 
 export default {
     name: "EnglishMenu",
@@ -20,7 +20,8 @@ export default {
       Dark,
       Light,
       Menu,
-      Sidebar
+      Sidebar,
+      Close
     },
     data() {
       return {
@@ -67,9 +68,6 @@ export default {
           this.router.push('/en') 
         }
       },
-      toggleMenu() {
-        this.isExpanded = !this.isExpanded
-      }
     },
     mounted: function(){
       this.isDarkTheme = this.checkTheme()
@@ -81,7 +79,10 @@ export default {
 </script>
 
 <template>
-  <Sidebar v-if="isExpanded"/>
+  <Sidebar :isExpanded="isExpanded"/>
+  <i>
+    <Close id="close" v-if="isExpanded" @click="isExpanded = !isExpanded"/>
+  </i>
   <header id="header">
     <ul>
       <div class="header-container">
@@ -90,7 +91,7 @@ export default {
        <small>marcos-c1</small>
       </div>
       <i>
-        <Menu id="hamburguer-menu" @click="toggleMenu" />
+        <Menu id="hamburguer-menu" @click="isExpanded = !isExpanded" />
       </i>
       <div class="page-container">
         <div id="pt-btn" :class="!isEnglish ? 'active' : ''" @click="changeToPortuguese">
@@ -150,6 +151,22 @@ export default {
 
 .disable {
   display: none;
+}
+
+#close {
+  position: fixed;
+  right: 12em;
+  top: 0;
+  z-index: 99;
+  border-radius: 10px;                  
+  margin: 5px;
+  padding: 10px;
+  font-weight: bolder;
+  margin-top: 1em;
+}
+
+#close:hover {
+  cursor: pointer;
 }
 
 .page-container {

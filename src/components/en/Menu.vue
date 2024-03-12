@@ -7,8 +7,8 @@ import Dark from "./../icons/IconDark.vue";
 import Light from "./../icons/IconLight.vue";
 import Menu from "./../icons/IconMenu.vue";
 import Sidebar from "./../en/Sidebar.vue";
+import Close from "./../icons/IconClose.vue";
 import { useRouter } from 'vue-router';
-import { ref } from 'vue';
 
 
 export default {
@@ -21,12 +21,13 @@ export default {
       Dark,
       Light,
       Menu,
-      Sidebar
+      Sidebar,
+      Close
     },
     data() {
       return {
         isDarkTheme: Boolean,
-        isExpanded: Boolean,
+        isExpanded: this.isExpanded,
         router: useRouter(),
         path: "" 
       }
@@ -78,7 +79,10 @@ export default {
 </script>
 
 <template>
-  <Sidebar v-if="isExpanded"/>
+  <Sidebar :isExpanded="isExpanded"/>
+  <i>
+    <Close id="close" v-if="isExpanded" @click="isExpanded = !isExpanded"/>
+  </i>
   <header id="header">
     <ul>
       <div class="header-container">
@@ -303,6 +307,22 @@ ul {
 
 #social-media {
   display: flex;
+}
+
+#close {
+  position: fixed;
+  right: 12em;
+  top: 0;
+  z-index: 99;
+  border-radius: 10px;                  
+  margin: 5px;
+  padding: 10px;
+  font-weight: bolder;
+  margin-top: 1em;
+}
+
+#close:hover {
+  cursor: pointer;
 }
 
 @media(max-width: 1580px){

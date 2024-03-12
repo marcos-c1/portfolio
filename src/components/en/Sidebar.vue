@@ -17,10 +17,12 @@ export default {
     Dark,
     Close 
   },
+  props: {
+    isExpanded: Boolean
+  },
   data() {
     return {
       isDarkTheme: Boolean,
-      isExpanded: Boolean,
       router: useRouter(),
       path: "" 
     }
@@ -62,28 +64,21 @@ export default {
         this.router.push('/en') 
       }
     },
-    toggleMenu() {
-      this.isExpanded = !this.isExpanded
-    }
   },
   mounted: function(){
     this.isDarkTheme = this.checkTheme()
-    this.isEnglish = true 
-    this.isExpanded = true 
+    this.isEnglish = false 
   },
 
 }
 </script>
 <template>
-  <aside v-if="isExpanded">
-    <i>
-      <Close id="close" @click="toggleMenu"/>
-    </i>
+  <aside v-show="isExpanded">
     <ul id="links">
-      <RouterLink to="/en">Home</RouterLink>
-      <RouterLink to="/en/about">About</RouterLink>
-      <RouterLink to="/en/projects">Projects</RouterLink>
-      <RouterLink to="/en/resume">Curriculum</RouterLink>
+      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/sobre-mim">About</RouterLink>
+      <RouterLink to="/projetos">Projects</RouterLink>
+      <RouterLink to="/cv">Curriculum</RouterLink>
     </ul>
     <ul id="icons">
       <div class="page-container">
@@ -135,7 +130,12 @@ li {
   display: flex;
   flex-direction: column;
   margin: 1em;
+  margin-top: 3em;
   font-weight: bolder;
+}
+
+#links > a {
+  padding-top: 1em;
 }
 
 #icons {
@@ -221,16 +221,4 @@ aside {
   color: var(--color-secondary);
 }
 
-#close {
-  border-radius: 10px;                  
-  margin: 5px;
-  padding: 10px;
-}
-
-#close:hover {
-  cursor: pointer;
-}
-
-
 </style>
-
