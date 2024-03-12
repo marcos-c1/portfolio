@@ -1,11 +1,17 @@
 <script lang="ts">
-import api from "../service/api.ts"
+import api from "../../service/api.ts"
+import Menu from '../../components/en/Menu.vue' 
+import Footer from '../../components/en/Footer.vue'
 
 function parseDate(str_date) {
   return new Date(Date.parse(str_date));
 }
 export default {
   name: 'ProjectView',
+  components: {
+    Menu,
+    Footer
+  },
   data() {
     return {
       repos: [] 
@@ -19,6 +25,7 @@ export default {
 </script>
 
 <template>
+  <Menu />
   <main>
     <h1 id="title">Projects</h1>
     <div id="container">
@@ -35,6 +42,7 @@ export default {
       </div>
     </div>
   </main>
+  <Footer />
 </template>
 
 <style scoped>

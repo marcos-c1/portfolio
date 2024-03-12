@@ -4,8 +4,8 @@ const location = useRoute();
 
 </script>
 <template>
-  <footer :style="location.path === '/about' ? 'position: absolute; bottom: 0;' : 'position: relative;'" class="footer">
-    <span>All right reserved &copy; Follow me <a href="https://www.github.com/marcos-c1/">@marcos-c1</a><span id="heart">&#10084;</span></span>
+  <footer :style="location.path === '/sobre-mim' ? 'position: absolute; bottom: 0;' : 'position: relative;'" class="footer">
+    <span>Todos os direitos reservados &copy; Me siga <a href="https://www.github.com/marcos-c1/">@marcos-c1</a><span id="heart">&#10084;</span></span>
   </footer>
 </template>
 <style scoped>

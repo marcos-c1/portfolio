@@ -1,13 +1,16 @@
 <script> 
-import Github from "./icons/IconGithub.vue";
-import Linkedin from "./icons/IconLinkedin.vue";
+import Github from "./../icons/IconGithub.vue";
+import Linkedin from "./../icons/IconLinkedin.vue";
 import IconItem from "./IconItem.vue";
-import Logo from "./icons/Logo.vue";
-import Dark from "./icons/IconDark.vue";
-import Light from "./icons/IconLight.vue";
+import Logo from "./../icons/Logo.vue";
+import Dark from "./../icons/IconDark.vue";
+import Light from "./../icons/IconLight.vue";
+import { useRouter } from 'vue-router';
+import { ref } from 'vue';
+
 
 export default {
-    name: "Menu",
+    name: "EnglishMenu",
     components: {
       Github,
       Linkedin,
@@ -18,7 +21,9 @@ export default {
     },
     data() {
       return {
-        isDarkTheme: Boolean 
+        isDarkTheme: Boolean,
+        router: useRouter(),
+        path: "" 
       }
     },
     methods: {
@@ -43,10 +48,25 @@ export default {
       },
       checkTheme() {
         window.matchMedia('(prefers-color-scheme: dark)').matches
+      },
+      changeToPortuguese(){
+        const path = this.router.currentRoute.path
+        if(path !== '/'){
+          this.isEnglish = !this.isEnglish 
+          this.router.push('/') 
+        }
+      },
+      changeToEnglish(){
+        const path = this.router.currentRoute.path
+        if(path !== '/en'){
+          this.isEnglish = !this.isEnglish 
+          this.router.push('/en') 
+        }
       }
     },
-    created: function(){
+    mounted: function(){
       this.isDarkTheme = this.checkTheme()
+      this.isEnglish = true
     },
 }
 </script>
@@ -59,6 +79,22 @@ export default {
      <small>marcos-c1</small>
     </div>
     <ul>
+      <div class="page-container">
+        <div id="pt-btn" :class="!isEnglish ? 'active' : ''" @click="changeToPortuguese">
+          <span>
+            PT
+          </span>
+        </div>
+        <div id="en-btn" :class="isEnglish ? 'active' : ''" @click="changeToEnglish">
+          <span>
+            EN
+          </span>
+        </div>
+      </div>
+      <RouterLink to="/en">Home</RouterLink>
+      <RouterLink to="/en/about">About</RouterLink>
+      <RouterLink to="/en/projects">Projects</RouterLink>
+      <RouterLink to="/en/resume">Curriculum</RouterLink>
       <div class="mode-container" @click="toggleTheme">
         <li v-if="isDarkTheme">
           <i>
@@ -71,10 +107,6 @@ export default {
           </i>
         </li>
       </div>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
-      <RouterLink to="/projects">Projects</RouterLink>
-      <RouterLink to="/resume">Curriculum</RouterLink>
     </ul>
     <div id="social-media">
       <IconItem site="linkedin" link="https://www.linkedin.com/in/marcos-bezerra-campos-981927196/">
@@ -102,6 +134,43 @@ export default {
   align-items: center; 
 }
 
+.page-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+  background-color: var(--color-border);
+  border-radius: 10px;
+  margin-right: 2em;
+  padding: 5px 10px;
+}
+
+#pt-btn {
+  width: 100%;
+  height: 100%;
+  margin-right: 0.5em;
+  padding-right: 10px;
+  border-right: 5px solid var(--color-border);
+}
+
+#en-btn {
+  width: 100%;
+  height: 100%;
+}
+
+#pt-btn:hover {
+  cursor: pointer;
+  color: var(--color-secondary);
+}
+
+#en-btn:hover {
+  cursor: pointer;
+  color: var(--color-secondary);
+}
+
+.active {
+  color: var(--color-secondary);
+}
+
 .mode-container {
   display: flex;
   flex-direction: row;
@@ -109,7 +178,7 @@ export default {
   align-items: end; 
   background-color: var(--color-border);
   border-radius: 2em;
-  margin-right: 2em;
+  margin-right: 1em;
 }
 
 .mode-container > li {

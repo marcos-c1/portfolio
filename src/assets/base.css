@@ -65,6 +65,7 @@
   --section-gap: 160px;
 }
 
+
 :root.dark {
   --color-background: var(--vt-c-black);
   --color-background-soft: var(--vt-c-black-soft);
@@ -162,4 +163,8 @@ main {
   background: var(--color-secondary);
 }
 
-
+header {
+  display: flex;
+  place-items: center;
+  padding-right: calc(var(--section-gap) / 2);
+}

@@ -1,5 +1,5 @@
 <script>
-import api from "../service/api.ts"
+import api from "../../service/api.ts"
 
 export default {
   name: 'About',
@@ -33,14 +33,14 @@ export default {
       <small>{{user.location}}</small>
     </div>
     <div id="brief-desc">
-      <p>Marcos is a dedicated person to the area of ​​Information Technology. He has a Bachelor's degree in Computer Science from the Federal Institute of Brasília. He has professional experience acquired through academic and freelance competitions, and also expanded his knowledge through internships carried out throughout his academic journey. His notable qualities include proactivity, resilience and dedication, characteristics that make him stand out in the field of technology.</p>
+      <p>Marcos é uma pessoa dedicada à área de Tecnologia da Informação. É bacharel em Ciência da Computação pelo Instituto Federal de Brasília. Possui experiência profissional adquirida através de concursos acadêmicos e freelance, e também ampliou seus conhecimentos através de estágios realizados ao longo de sua trajetória acadêmica. Suas qualidades notáveis ​​incluem proatividade, resiliência e dedicação, características que o diferenciam na área de tecnologia.</p>
       <form method="post" @submit="sendEmail">
         <div class="form-container">
-          <span style="padding-right: 2em; color: var(--color-heading); font-size: 1.2em; ">Contact me</span>
-          <input style="width: 30em;" name="email" v-model="email" type="email" placeholder="example@org.com"/>
+          <span style="padding-right: 2em; color: var(--color-heading); font-size: 1.2em; ">Contate-me</span>
+          <input style="width: 30em;" name="email" v-model="email" type="email" placeholder="exemplo@org.com.br"/>
         </div>
-        <textarea rows="10" name="message" v-model="message" placeholder="Send your message.."></textarea>
-        <input id="button" style="color: var(--color-heading);" type="submit" value="Send" />
+        <textarea rows="10" name="message" v-model="message" placeholder="Escreva sua mensagem.."></textarea>
+        <input id="button" style="color: var(--color-heading);" type="submit" value="Enviar" />
       </form>
     </div>
   </div>

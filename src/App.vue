@@ -1,15 +1,11 @@
-<script setup lang="ts">
-
+<script>
 import { RouterLink, RouterView } from 'vue-router'
-import Menu from './components/Menu.vue'
-import Footer from './components/Footer.vue'
+import { useRouter } from 'vue-router'
 
 </script>
 
 <template>
-  <Menu/>
   <RouterView />
-  <Footer />
 </template>
 
 <style scoped>

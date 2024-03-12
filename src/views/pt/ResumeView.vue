@@ -1,13 +1,18 @@
 <script setup lang="ts">
-import CV from "../assets/files/curriculo_marcos_english.pdf"
+import CV from "../../assets/files/curriculo_marcos.pdf" 
+import Menu from '../../components/pt/Menu.vue'
+import Footer from '../../components/pt/Footer.vue'
+
 </script>
 <template>
+  <Menu />
   <main>
-    <h1 id="title">Curriculum Vitae</h1>
+    <h1 id="title">Curriculo</h1>
     <div id="container">
     <embed :src="CV" id="pdf"></embed>
     </div>
   </main>
+  <Footer />
 </template>
 <style scoped>
 
