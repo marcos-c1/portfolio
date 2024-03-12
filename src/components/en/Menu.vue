@@ -6,6 +6,7 @@ import Logo from "./../icons/Logo.vue";
 import Dark from "./../icons/IconDark.vue";
 import Light from "./../icons/IconLight.vue";
 import Menu from "./../icons/IconMenu.vue";
+import Sidebar from "./../en/Sidebar.vue";
 import { useRouter } from 'vue-router';
 import { ref } from 'vue';
 
@@ -19,11 +20,13 @@ export default {
       Logo,
       Dark,
       Light,
-      Menu
+      Menu,
+      Sidebar
     },
     data() {
       return {
         isDarkTheme: Boolean,
+        isExpanded: Boolean,
         router: useRouter(),
         path: "" 
       }
@@ -64,16 +67,18 @@ export default {
           this.isEnglish = !this.isEnglish 
           this.router.push('/en') 
         }
-      }
+      },
     },
     mounted: function(){
       this.isDarkTheme = this.checkTheme()
       this.isEnglish = true
+      this.isExpanded = false
     },
 }
 </script>
 
 <template>
+  <Sidebar v-if="isExpanded"/>
   <header id="header">
     <ul>
       <div class="header-container">
@@ -82,7 +87,7 @@ export default {
        <small>marcos-c1</small>
       </div>
       <i>
-        <Menu id="hamburguer-menu" />
+        <Menu id="hamburguer-menu" @click="isExpanded = !isExpanded"/>
       </i>
       <div class="page-container">
         <div id="pt-btn" :class="!isEnglish ? 'active' : ''" @click="changeToPortuguese">
@@ -96,7 +101,6 @@ export default {
           </span>
         </div>
       </div>
-      
       <RouterLink to="/en">Home</RouterLink>
       <RouterLink to="/en/about">About</RouterLink>
       <RouterLink to="/en/projects">Projects</RouterLink>

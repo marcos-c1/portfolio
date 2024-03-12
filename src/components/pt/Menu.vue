@@ -6,9 +6,9 @@ import Logo from "./../icons/Logo.vue";
 import Dark from "./../icons/IconDark.vue";
 import Light from "./../icons/IconLight.vue";
 import Menu from "./../icons/IconMenu.vue";
+import Sidebar from "./../pt/Sidebar.vue";
 import { useRouter } from 'vue-router';
 import { ref } from 'vue';
-
 
 export default {
     name: "EnglishMenu",
@@ -19,11 +19,13 @@ export default {
       Logo,
       Dark,
       Light,
-      Menu
+      Menu,
+      Sidebar
     },
     data() {
       return {
         isDarkTheme: Boolean,
+        isExpanded: this.isExpanded,
         router: useRouter(),
         path: "" 
       }
@@ -64,16 +66,22 @@ export default {
           this.isEnglish = !this.isEnglish 
           this.router.push('/en') 
         }
+      },
+      toggleMenu() {
+        this.isExpanded = !this.isExpanded
       }
     },
     mounted: function(){
       this.isDarkTheme = this.checkTheme()
+      // Global variables
       this.isEnglish = false 
+      this.isExpanded = false
     },
 }
 </script>
 
 <template>
+  <Sidebar v-if="isExpanded"/>
   <header id="header">
     <ul>
       <div class="header-container">
@@ -82,7 +90,7 @@ export default {
        <small>marcos-c1</small>
       </div>
       <i>
-        <Menu id="hamburguer-menu" />
+        <Menu id="hamburguer-menu" @click="toggleMenu" />
       </i>
       <div class="page-container">
         <div id="pt-btn" :class="!isEnglish ? 'active' : ''" @click="changeToPortuguese">
@@ -96,7 +104,6 @@ export default {
           </span>
         </div>
       </div>
-      
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/sobre-mim">Sobre mim</RouterLink>
       <RouterLink to="/projetos">Projetos</RouterLink>
@@ -139,6 +146,10 @@ export default {
   left: 0;
   align-items: center; 
   white-space: nowrap;
+}
+
+.disable {
+  display: none;
 }
 
 .page-container {
@@ -211,7 +222,6 @@ export default {
 #hamburguer-menu:hover {
   cursor: pointer;
   background-color: var(--color-secondary);
-
 }
 
 #logo-photo {

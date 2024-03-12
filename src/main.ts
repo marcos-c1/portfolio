@@ -6,6 +6,7 @@ import router from './router'
 
 const app = createApp(App)
 app.config.globalProperties.isEnglish = false 
+app.config.globalProperties.isExpanded = false 
 
 app.use(router)
 
