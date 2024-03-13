@@ -110,9 +110,8 @@ export default {
 #paginator {
   display: flex;
   flex-direction: row;
-  float: right;
-  margin-right: 20em;
-  margin-top: 1em;
+  justify-content: center;
+  margin-top: 2em;
   font-size: 1.2em;
   color: var(--color-secondary);
 }
@@ -124,10 +123,10 @@ export default {
 #container {
   position: relative;
   display: grid;
-  justify-content: end;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2em;
-  margin: 0 15em;
+  justify-content: center;
+  grid-template-columns: repeat(3, 400px);
+  grid-column-gap: 3em;
+  grid-row-gap: 4em;
 }
 
 #card {
@@ -170,43 +169,64 @@ export default {
 
 @media(max-width: 1250px) {
   #container {
-    grid-template-columns: repeat(2, 1fr);
-    margin: 0 10em;
+    grid-template-columns: repeat(2, 400px);
   }
 }
 
-@media(max-width: 1250px) {
+@media(max-width: 850px) {
+  #container {
+    grid-template-columns: repeat(2, 300px);
+    justify-items: center;
+  }
+
   #card {
     width: 300px;
+    height: 300px;
   }
 }
 
-@media(max-width: 1000px) {
+@media(max-width: 640px){
   #container {
-    margin-right: 0;
-    margin-left: 4em;
+    grid-template-columns: 400px; 
   }
 
-  #card h1 {
-    font-size: 1.8em;
-  }
-
-  #card p {
-    font-size: 0.8em;
+  #card {
+    width: 400px;
+    height: 400px;
   }
 }
 
-@media(max-width: 650px){
+@media(max-width: 450px){
   #container {
-    grid-template-columns: 1fr; 
-    margin: 0 5em;
+    grid-template-columns: 300px; 
+  }
+
+  #card {
+    width: 300px;
+    height: 300px;
   }
 }
 
-@media(max-width: 400px){
+@media(max-width: 350px){
   #container {
-    grid-template-columns: 1fr; 
-    margin-right: 1em;
+    grid-template-columns: 200px; 
+  }
+
+  #card {
+    width: 200px;
+    height: 200px;
+  }
+
+  #card > h1 {
+    font-size: 1.2em;
+  }
+
+  #card > p {
+    font-size: 0.7em;
+  }
+
+  #card > small {
+    font-size: 0.5em;
   }
 }
 

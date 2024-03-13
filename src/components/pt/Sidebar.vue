@@ -178,7 +178,7 @@ aside {
   top: 0;
   position: fixed;
   height: 100%;
-  width: 30vh;
+  width: 16em;
   padding: 1rem;
   z-index: 99;
   transform: translate3d(100vw,0,0) translateX(-100%);

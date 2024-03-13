@@ -51,6 +51,7 @@
 
 #desc > h1 {
   font-size: 3em;
+  text-align: center;
 }
 
 #desc > p {

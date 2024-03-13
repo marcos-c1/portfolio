@@ -137,7 +137,42 @@ h3 {
 
 @media(max-width: 670px){
   .item {
-    margin-top: 2em;
+    margin: 4em;
+  }
+}
+
+@media(max-width: 500px){
+  .item {
+    margin-top: 10em;
+  }
+
+  .item:first-child {
+    margin-top: 5em;
+  }
+}
+
+@media(max-width: 450px){
+  .item {
+    margin-top: 20em;
+  }
+
+  .item:last-child {
+    margin-bottom: 10em;
+  }
+
+  .item:first-child{
+    margin-top: 10em;
+  }
+
+}
+
+@media(max-width: 350px){
+  .item {
+    margin-top: 40em;
+  }
+
+  .item:last-child {
+    margin-bottom: 20em;
   }
 }
 

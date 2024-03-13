@@ -75,10 +75,10 @@ export default {
 <template>
   <aside v-show="isExpanded">
     <ul id="links">
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/sobre-mim">About</RouterLink>
-      <RouterLink to="/projetos">Projects</RouterLink>
-      <RouterLink to="/cv">Curriculum</RouterLink>
+      <RouterLink to="/en">Home</RouterLink>
+      <RouterLink to="/en/about">About</RouterLink>
+      <RouterLink to="/en/projects">Projects</RouterLink>
+      <RouterLink to="/en/resume">Curriculum</RouterLink>
     </ul>
     <ul id="icons">
       <div class="page-container">
@@ -178,7 +178,7 @@ aside {
   top: 0;
   position: fixed;
   height: 100%;
-  width: 30vh;
+  width: 16em;
   padding: 1rem;
   z-index: 99;
   transform: translate3d(100vw,0,0) translateX(-100%);

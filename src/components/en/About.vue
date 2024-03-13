@@ -25,7 +25,7 @@ export default {
 </script>
 <template>
   <div id="container">
-    <div id="my-image">
+    <div id="container-image">
       <img :src="user.avatar_url" id="profile-pic" alt="marcos-c1"/>
       <h2>{{user.name}}</h2>
       <span>{{user.blog}}</span>
@@ -118,7 +118,7 @@ textarea {
   align-items: center;
 }
 
-#my-image {
+#container-image {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -137,7 +137,7 @@ textarea {
     width: 300px;
     height: 300px;
   }
-  #my-image {
+  #container-image {
     margin-top: 0;
   }
   #brief-desc > p {
@@ -160,7 +160,13 @@ textarea {
 @media(max-width: 750px){
   #container {
     grid-template-columns: 1fr; 
+    margin-bottom: 2em;
   }
+
+  #profile-pic {
+    margin-left: 1em;
+  }
+
 } 
 
 </style>

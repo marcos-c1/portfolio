@@ -50,7 +50,6 @@ const router = createRouter({
     {
       path: '/en/projects',
       name: 'projects',
-                                                             
       component: EnProjectView 
     },
     {
