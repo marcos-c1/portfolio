@@ -1,5 +1,5 @@
-<script lang="ts">
-import api from "../../service/api.ts"
+<script>
+import api from "../../service/api"
 import Menu from '../../components/pt/Menu.vue'
 import Footer from '../../components/pt/Footer.vue'
 import ArrowLeft from '../../components/icons/IconArrowLeft.vue'
@@ -8,6 +8,7 @@ import ArrowRight from '../../components/icons/IconArrowRight.vue'
 function parseDate(str_date) {
   return new Date(Date.parse(str_date));
 }
+
 export default {
   name: 'ProjectView',
   components: {
@@ -19,7 +20,7 @@ export default {
   data() {
     return {
       repos: [[]],
-      pagination: Number,
+      pagination: 0,
       limit: 0 
     }
   },
