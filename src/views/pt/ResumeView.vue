@@ -9,7 +9,7 @@ import Footer from '../../components/pt/Footer.vue'
   <main>
     <h1 id="title">Curriculo</h1>
     <div id="container">
-    <embed :src="CV" id="pdf"></embed>
+    <embed :src="CV" id="pdf">
     </div>
   </main>
   <Footer />

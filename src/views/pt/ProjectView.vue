@@ -1,13 +1,14 @@
 <script lang="ts">
-import api from "../../service/api.ts"
+import api from "../../service/api"
 import Menu from '../../components/pt/Menu.vue'
 import Footer from '../../components/pt/Footer.vue'
 import ArrowLeft from '../../components/icons/IconArrowLeft.vue'
 import ArrowRight from '../../components/icons/IconArrowRight.vue'
 
-function parseDate(str_date) {
+function parseDate(str_date: string) {
   return new Date(Date.parse(str_date));
 }
+
 export default {
   name: 'ProjectView',
   components: {
