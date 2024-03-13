@@ -19,7 +19,6 @@ import Footer from '../../components/en/Footer.vue'
 #container {
   display: flex;
   justify-content: center;
-  margin: 0 15em;
   height: 80em;
 }
 
@@ -32,25 +31,6 @@ import Footer from '../../components/en/Footer.vue'
 #pdf {
   width: 100%;
   height: 100%;
-}
-
-@media(max-width: 1200px) {
-  #container {
-    margin: 0 10em;
-  }
-
-}
-
-@media(max-width: 800px) {
-  #container {
-    margin: 0 5em;
-  }
-}
-
-@media(max-width: 500px) {
-  #container {
-    margin: 0;
-  }
 }
 
 </style>
