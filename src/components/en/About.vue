@@ -36,11 +36,11 @@ export default {
       <p>Marcos is a dedicated person to the area of ​​Information Technology. He has a Bachelor's degree in Computer Science from the Federal Institute of Brasília. He has professional experience acquired through academic and freelance competitions, and also expanded his knowledge through internships carried out throughout his academic journey. His notable qualities include proactivity, resilience and dedication, characteristics that make him stand out in the field of technology.</p>
       <form method="post" @submit="sendEmail">
         <div class="form-container">
-          <span style="padding-right: 2em; color: var(--color-heading); font-size: 1.2em; ">Contact me</span>
-          <input style="width: 30em;" name="email" v-model="email" type="email" placeholder="example@org.com"/>
+          <span style="padding-right: 2em; color: var(--color-heading); padding: 10px; font-size: 1.2em;">Contact me</span>
+          <input style="width: 30em; padding: 10px; border-radius: 5px; border: none; margin-bottom: 10px; font-family: inherit;" id="contact" name="email" v-model="email" type="email" placeholder="exemplo@org.com.br"/>
+          <textarea rows="10" name="message" v-model="message" placeholder="Send your message.."></textarea>
+          <input id="button" type="submit" value="Enviar" />
         </div>
-        <textarea rows="10" name="message" v-model="message" placeholder="Send your message.."></textarea>
-        <input id="button" style="color: var(--color-heading);" type="submit" value="Send" />
       </form>
     </div>
   </div>
@@ -51,16 +51,13 @@ export default {
 #button {
   font-family: inherit;
   font-size: 1em;
-  margin-top: 1em;
-  display: flex;
-  flex-direction: row;
-  float: right;
-  justify-content: center;
   background: var(--color-secondary);
+  color: var(--color-heading);
   border: none;
   border-radius: 5px; 
   width: 80px;
   height: 40px;
+  margin-top: 1em;
 }
 
 #button:hover {
@@ -74,11 +71,12 @@ h2 {
 }
 
 #brief-desc {
-  text-align: center;
+  color: var(--color-heading);
+  max-width: 800px;
   text-justify: justify;
-  align-self: center;
   padding: 20px;
   margin-top: 2em;
+  white-space: normal;
 }
 
 form {
@@ -87,43 +85,40 @@ form {
 }
 
 .form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding-bottom: 1em;
-}
-
-p {
-  color: var(--color-heading);
-  font-size: 1.2em;
-}
-
-input {
-  font-family: inherit;
-  padding: 1em;
-  border-radius: 5px;
 }
 
 textarea {
   position: relative;
-  width: 100%;
   font-family: inherit;
   border-radius: 10px;
-  padding: 1em;
+  padding: 10px;
   resize: none;
+  height: 100%;
+  width: 100%;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 #container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  position: relative;
+  display: flex;
   justify-content: center;
   align-items: center;
+  overflow-x: hidden;
 }
 
 #container-image {
   display: flex;
-  position: relative;
   flex-direction: column;
-  justify-self: center;
-  margin-top: 3em;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  padding-right: 2em;
 }
 
 #profile-pic {
@@ -152,21 +147,25 @@ textarea {
     height: 250px;
   }
   
-  #brief-desc > p {
+  #container {
     font-size: 0.9em;
+    padding: 0;
   }
 }
 
-@media(max-width: 750px){
+@media(max-width: 950px){
   #container {
-    grid-template-columns: 1fr; 
-    margin-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap; 
   }
 
   #profile-pic {
+    width: 200px;
+    height: 200px;
     margin-left: 1em;
   }
-
 } 
 
 </style>

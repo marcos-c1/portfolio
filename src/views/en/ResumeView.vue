@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import CV from "../../assets/files/curriculo_marcos_en.pdf"
-import Menu from '../../components/en/Menu.vue' 
+import CV from "../../assets/files/curriculo_marcos_en.pdf" 
+import Menu from '../../components/en/Menu.vue'
 import Footer from '../../components/en/Footer.vue'
 
 </script>
@@ -9,7 +9,7 @@ import Footer from '../../components/en/Footer.vue'
   <main>
     <h1 id="title">Curriculum Vitae</h1>
     <div id="container">
-    <embed :src="CV" id="pdf"></embed>
+      <object :data="CV" type="application/pdf" style="heigth: 100%; width:100%;"></object>
     </div>
   </main>
   <Footer />
@@ -17,9 +17,12 @@ import Footer from '../../components/en/Footer.vue'
 <style scoped>
 
 #container {
+  display: flex;
+  justify-content: center;
   margin: 0 15em;
   height: 80em;
 }
+
 #title {
   color: var(--color-heading);
   text-align: center;
@@ -31,19 +34,20 @@ import Footer from '../../components/en/Footer.vue'
   height: 100%;
 }
 
-@media(max-width: 1400px) {
+@media(max-width: 1200px) {
   #container {
     margin: 0 10em;
   }
+
 }
 
-@media(max-width: 1200px) {
+@media(max-width: 800px) {
   #container {
     margin: 0 5em;
   }
 }
 
-@media(max-width: 1400px) {
+@media(max-width: 500px) {
   #container {
     margin: 0;
   }

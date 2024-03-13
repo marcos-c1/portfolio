@@ -1,24 +1,13 @@
-<script setup lang="ts">
-  import About from "../../components/pt/About.vue"
-  import Menu from '../../components/pt/Menu.vue'
-  import Footer from '../../components/pt/Footer.vue'
+<script setup>
+import About from '../../components/pt/About.vue' 
+import Menu from '../../components/pt/Menu.vue'
+import Footer from '../../components/pt/Footer.vue'
 
 </script>
 <template>
   <Menu />
   <main style="padding-top: 2em;">
-    <div class="about">
-      <About />
-    </div>
+    <About />
   </main>
   <Footer />
 </template>
-
-<style>
-
-.about {
-  margin: 0 15em;
-  text-align: center;
-}
-
-</style>
