@@ -61,6 +61,14 @@ export default {
           this.router.push('/') 
         }
       },
+      redirectHome() {
+        const path = this.router.currentRoute.path
+        if(path != '/en'){
+          this.router.push('/')
+        } else {
+          this.router.push('/en')
+        }
+      },
       changeToEnglish(){
         const path = this.router.currentRoute.path
         if(path !== '/en'){
@@ -84,7 +92,7 @@ export default {
     <Close id="close" v-if="isExpanded" @click="isExpanded = !isExpanded"/>
   </i>
   <header id="header">
-    <div class="logo-container">
+    <div class="logo-container" @click="redirectHome">
      <Logo id="logo-photo"/>
      <div class="flex-column">
        <h3 id="logo">Marcos</h3>
@@ -156,6 +164,10 @@ export default {
   align-items: center; 
   white-space: nowrap;
   user-select: none;
+}
+
+.logo-container:hover {
+  cursor: pointer;
 }
 
 .disable {
