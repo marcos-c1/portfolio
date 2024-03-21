@@ -4,10 +4,8 @@ import Menu from '../../components/pt/Menu.vue'
 import Footer from '../../components/pt/Footer.vue'
 import ArrowLeft from '../../components/icons/IconArrowLeft.vue'
 import ArrowRight from '../../components/icons/IconArrowRight.vue'
-
-function parseDate(str_date) {
-  return new Date(Date.parse(str_date));
-}
+import Tab from '../../components/pt/Tab.vue'
+import Card from '../../components/pt/Card.vue'
 
 export default {
   name: 'ProjectView',
@@ -15,17 +13,51 @@ export default {
     Menu,
     Footer,
     ArrowLeft,
-    ArrowRight
+    ArrowRight,
+    Tab,
+    Card
   },
   data() {
     return {
       repos: [[]],
-      pagination: Number,
-      limit: 0 
+      pagination: 1,
+      currentTab: 0,
+      limit: 0,
+      tabs: [
+        {
+          id: 0,
+          name: 'Pessoal', 
+          active: true 
+        },
+        {
+          id: 1,
+          name: 'Github',
+          active: false
+        }
+      ],
+      projects: [
+        [
+          {
+            id: 0,
+            name: 'Notes',
+            html_url: 'https://notes-frontend-jet.vercel.app/',
+            description: 'Uma aplicação full-stack feita em Tauri, NodeJS, TypeScript, React, MongoDB. Todas as notas, com suporte a sintaxe Markdown, são salvas em um banco não-relacional a partir de uma conta de usuário.',
+            image_url: './src/assets/imgs/notes.png',
+            languages: ['Typescript', 'React', 'MongoDB'],
+          },
+          {
+            id: 1,
+            name: 'COVID-19 Tracker',
+            html_url: 'https://marcos-c1.github.io/covid-app-io/',
+            description: 'Um aplicativo informativo sobre a incidência da doença COVID-19 nos estados brasileiros.',
+            image_url: './src/assets/imgs/covid.png',
+            languages: ['Flutter', 'Dart'],
+          },
+        ]
+      ],
     }
   },
   created: async function(){
-    this.pagination = 1
     this.repos[this.pagination-1] = await api.fetchRepos()
   },
   methods: {
@@ -42,6 +74,14 @@ export default {
     },
     fetchRepoBack(){
       this.pagination -= 1
+    },
+    isActive(index) {
+      if(!this.tabs[index].active){
+        const resetIndex = index == 1 ? index-1 : index+1
+        this.tabs[resetIndex].active = false 
+        this.currentTab = index
+        this.tabs[index].active = !this.tabs[index].active 
+      }
     }
   }
 }
@@ -51,21 +91,12 @@ export default {
   <Menu />
     <main>
       <h1 id="title">Projetos</h1>
+      <ul id="list">
+        <Tab :title="tab.name" v-for="(tab, index) in tabs" :key="index" :class="tab.active  ? 'active' : ''" @click="isActive(index)"/>
+      </ul>
       <span class="error-limit" v-if="limit == pagination">Não há mais projetos a serem buscados.</span>
-      <div id="container">
-        <div id="card" v-for="r in repos[pagination-1]" :key="r.id">
-          <h1>
-            <a :href="r.html_url" target="_blank" rel="noopener">{{r.name}}</a>
-          </h1>
-          <p>
-            {{r.description ? r.description : "Sem descrição provida."}}
-          </p>
-          <small>
-            {{ new Date(Date.parse(r.created_at)).toLocaleString() }}
-          </small>
-        </div>
-      </div>
-      <div id="paginator">
+      <Card :paginator="currentTab === 0 ? 0 : pagination-1" :repos="currentTab === 0 ? projects : repos"/> 
+      <div id="paginator" v-if="currentTab === 1">
         <i v-if="pagination !== 1" @click="fetchRepoBack">
           <ArrowLeft id="icon"/>
         </i>
@@ -79,6 +110,26 @@ export default {
 </template>
 
 <style scoped>
+
+#list {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 2em;
+}
+
+#list > li:hover {
+  cursor: pointer;
+}
+
+#list > li {
+  margin-right: 2em;
+}
+
+.active {
+  border-bottom: 3px solid var(--color-secondary); 
+}
 
 .error-limit {
   color: red; 
@@ -119,115 +170,6 @@ export default {
   color: var(--color-heading);
   text-align: center;
   padding: 1em 0;
-}
-#container {
-  position: relative;
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(3, 400px);
-  grid-column-gap: 3em;
-  grid-row-gap: 4em;
-}
-
-#card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-  padding: 1em 2em;
-  color: var(--color-text);
-  background: var(--color-background);
-  border-radius: 8px;
-  border: 1px solid var(--color-border);
-  width: 400px;
-  height: 280px;
-}
-
-#card > p {
-  color: var(--color-heading);
-}
-
-@media(max-width: 1600px) {
-  #container {
-    margin: 0 10em;
-  }
-}
-
-@media(max-width: 1500px) {
-  #container {
-    margin: 0 5em;
-    gap: 2em;
-  }
-}
-
-@media(max-width: 1400px) {
-  #container {
-    margin: 0;
-    gap: 1em;
-  }
-}
-
-@media(max-width: 1250px) {
-  #container {
-    grid-template-columns: repeat(2, 400px);
-  }
-}
-
-@media(max-width: 850px) {
-  #container {
-    grid-template-columns: repeat(2, 300px);
-    justify-items: center;
-  }
-
-  #card {
-    width: 300px;
-    height: 300px;
-  }
-}
-
-@media(max-width: 640px){
-  #container {
-    grid-template-columns: 400px; 
-  }
-
-  #card {
-    width: 400px;
-    height: 400px;
-  }
-}
-
-@media(max-width: 450px){
-  #container {
-    grid-template-columns: 300px; 
-  }
-
-  #card {
-    width: 300px;
-    height: 300px;
-  }
-}
-
-@media(max-width: 350px){
-  #container {
-    grid-template-columns: 200px; 
-  }
-
-  #card {
-    width: 200px;
-    height: 200px;
-  }
-
-  #card > h1 {
-    font-size: 1.2em;
-  }
-
-  #card > p {
-    font-size: 0.7em;
-  }
-
-  #card > small {
-    font-size: 0.5em;
-  }
 }
 
 </style>

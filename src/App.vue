@@ -16,7 +16,6 @@ body {
   padding-top: 10em;
   line-height: 1.5;
   max-height: 100vh;
-  z-index: -1;
 }
 
 .logo {

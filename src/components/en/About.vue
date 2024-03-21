@@ -37,7 +37,7 @@ export default {
       <form method="post" @submit="sendEmail">
         <div class="form-container">
           <span style="padding-right: 2em; color: var(--color-heading); padding: 10px; font-size: 1.2em;">Contact me</span>
-          <input style="width: 30em; padding: 10px; border-radius: 5px; border: none; margin-bottom: 10px; font-family: inherit;" id="contact" name="email" v-model="email" type="email" placeholder="exemplo@org.com.br"/>
+          <input id="contact" name="email" v-model="email" type="email" placeholder="exemplo@org.com.br"/>
           <textarea rows="10" name="message" v-model="message" placeholder="Send your message.."></textarea>
           <input id="button" type="submit" value="Enviar" />
         </div>
@@ -58,6 +58,16 @@ export default {
   width: 80px;
   height: 40px;
   margin-top: 1em;
+}
+
+#contact {
+  font-family: inherit;
+  border-width: 1px; 
+  width: 30em; 
+  padding: 10px; 
+  border-radius: 5px; 
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133)); 
+  margin-bottom: 10px;
 }
 
 #button:hover {

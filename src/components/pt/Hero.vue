@@ -19,7 +19,6 @@
   width: 100%;
   height: 50vh;
   /*background-image: repeating-linear-gradient(to bottom,transparent,transparent 9px,var(--bg-grid-color) 9px,var(--bg-grid-color) 10px),repeating-linear-gradient(to right,transparent,transparent 9px,var(--bg-grid-color) 9px,var(--bg-grid-color) 10px);*/
-  z-index: -100;
 }
 
 #desc {

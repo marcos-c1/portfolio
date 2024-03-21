@@ -1,30 +1,47 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
+import Logo from "./../icons/Logo.vue";
 const location = useRoute();
 
 </script>
 <template>
-  <footer :style="location.path === '/sobre-mim' ? 'position: fixed; bottom: 0;' : 'position: relative;'" class="footer">
-    <span>Todos os direitos reservados &copy; Me siga <a href="https://www.github.com/marcos-c1/">@marcos-c1</a><span id="heart">&#10084;</span></span>
+  <footer class="footer">
+     <Logo id="logo-photo"/>
+    <small><a href="https://www.github.com/marcos-c1/">@marcos-c1</a><span id="heart">&#10084;</span></small>
   </footer>
 </template>
 <style scoped>
 
 .footer {
-  position: fixed;
+  white-space: nowrap; 
+  font-family: inherit;
+  color: var(--color-text);
   bottom: 0;
-  text-align: center;
-  border: 1px solid var(--color-border);
-  margin-top: 2em;
+  display: flex;
+  overflow: hidden;
+  flex-direction: row;
+  justify-content: center;
+  position: fixed;
+  z-index: 99;
+  background: transparent; 
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--color-secondary); 
   width: 100%;
-  white-space: nowrap;
-  overflow-x: hidden;
+  height: 1.5em;
 }
 
-span {
+a {
   color: var(--color-heading);
-  padding-right: 20px;
 }
+
+#logo-photo {
+  position: relative;
+  animation: levitate 1s infinite backwards; 
+  color: var(--color-secondary);
+  font-weight: bold;
+  width: 40px;
+  height: 30px;
+} 
 
 #heart{
   padding-left: 5px;

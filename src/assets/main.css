@@ -12,6 +12,10 @@ a,
   padding: 3px;
 }
 
+#container {
+  z-index: 1;
+}
+
 @media (hover: hover) {
   a:hover {
     background-color: hsla(160, 100%, 37%, 0.2);

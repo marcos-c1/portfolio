@@ -69,6 +69,8 @@ import SupportIcon from './../icons/IconSupport.vue'
 }
 
 #container {
+  display: flex;
+  flex-direction: column;
   border-bottom: 1px solid var(--color-border);
 }
 

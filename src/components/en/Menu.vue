@@ -319,7 +319,7 @@ a:hover {
   justify-content: space-between; 
   flex-direction: row;
   position: fixed;
-  z-index: 1;
+  z-index: 99;
   background: transparent; 
   padding: 0 15em;
   backdrop-filter: blur(10px);

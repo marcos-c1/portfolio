@@ -19,6 +19,9 @@ import Footer from '../../components/en/Footer.vue'
   </main>
 </template>
 
-<style scope>
-
+<style scoped>
+#container {
+  display: flex;
+  flex-direction: column;
+}
 </style>
