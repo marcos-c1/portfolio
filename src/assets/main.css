@@ -1,5 +1,13 @@
 @import './base.css';
 
+@font-face {
+  font-family: "jetbrains";
+  font-weight: 400;
+  font-style: normal;
+  font-display: auto;
+  src: url("$fonts/JetBrains_Mono/static/JetBrainsMono-Regular.ttf");
+}
+
 #app {
   font-weight: normal;
 }
