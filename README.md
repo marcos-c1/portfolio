@@ -11,8 +11,10 @@
 <figure align="center">
     <a href="https://portfolio-marcos-c1.vercel.app/">
     <img src="portfolio.png" alt="Marcos's portfolio"/></a>
-    <small>Click on the image above to redirect to the website</small>
 </figure>
+
+<div align="center">Click on the image above to redirect to the website</div>
+
 
 ## Project Setup
 
