@@ -15,6 +15,7 @@
 
 <div align="center">Click on the image above to redirect to the website</div>
 
+
 ## Project Setup
 
 ```sh
