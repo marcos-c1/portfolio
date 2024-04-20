@@ -1,22 +1,22 @@
 <template>
 <div id="container">
-  <div id="card" v-for="r in repos[paginator]" :key="r.id">
-    <figure v-if="r.image_url" class="card__thumbnail">
-      <img :src="r.image_url" width="80" height="80" id="image">
-    </figure>
-    <h1 v-if="r.name">
-      <a :href="r.html_url" target="_blank" rel="noopener">{{r.name}}</a>
-    </h1>
-    <p>
-      {{r.description ? r.description : "Sem descrição provida."}}
-    </p>
-    <small v-if="r.created_at">
-      {{ new Date(Date.parse(r.created_at)).toLocaleString() }}
-    </small>
-    <small v-if="r.languages" >
-      {{ r.languages }}
-    </small>
-  </div>
+    <div id="card" v-for="r in repos[paginator]" :key="r.id" @click="openProject(r.html_url)">
+      <figure v-if="r.image_url" class="card__thumbnail">
+        <img :src="r.image_url" width="80" height="80" id="image">
+      </figure>
+      <h2 v-if="r.name">
+        {{r.name}}
+      </h2>
+      <p>
+        {{r.description ? r.description : "Sem descrição provida."}}
+      </p>
+      <small v-if="r.created_at">
+        Created at {{ new Date(Date.parse(r.created_at)).toLocaleString() }}
+      </small>
+      <small v-if="r.languages" >
+        {{ r.languages }}
+      </small>
+    </div>
 </div>
 </template>
 <script>
@@ -27,6 +27,9 @@ export default {
     paginator: Number,
   },
   methods: {
+    openProject(url){
+      window.open(url, "_blank")
+    }
   }
 }
 </script>
@@ -63,7 +66,18 @@ export default {
   border-radius: 8px;
   border: 1px solid var(--color-border);
   width: 400px;
-  height: 300px;
+  height: 400px;
+}
+
+#card:hover {
+  border-color: var(--color-secondary);
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+#card > h2 {
+  font-size: 1.7em;
+  color: var(--color-secondary);
 }
 
 #card > p, #card > h1, #card > small {

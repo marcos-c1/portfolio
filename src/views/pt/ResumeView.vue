@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CV from "../../assets/files/curriculo_marcos.pdf" 
+import CV from "../../assets/files/marcos_cv.pdf"
 import Menu from '../../components/pt/Menu.vue'
 import Footer from '../../components/pt/Footer.vue'
 
@@ -9,7 +9,7 @@ import Footer from '../../components/pt/Footer.vue'
   <main>
     <h1 id="title">Curriculo</h1>
     <div id="container">
-      <object :data="CV" type="application/pdf" style="heigth: 100%; width:100%;"></object>
+      <object :data="CV" type="application/pdf" style="height: 100%; width:100%;"></object>
     </div>
   </main>
   <Footer />

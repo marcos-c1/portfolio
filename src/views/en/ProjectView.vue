@@ -42,7 +42,7 @@ export default {
             name: 'Notes',
             html_url: 'https://notes-frontend-jet.vercel.app/',
             description: 'A full-stack application made in Tauri, NodeJS, TypeScript, React, MongoDB. All notes, with Markdown syntax support, are saved in a non-relational bank from a user account.',
-            image_url: '../src/assets/imgs/notes.png',
+            /*image_url: '../src/assets/imgs/notes.png',*/
             languages: ['Typescript', 'React', 'MongoDB'],
           },
           {
@@ -50,8 +50,36 @@ export default {
             name: 'COVID-19 Tracker',
             html_url: 'https://marcos-c1.github.io/covid-app-io/',
             description: 'An informative application about the incidence of COVID-19 disease in Brazilian states.',
-            image_url: '../src/assets/imgs/covid.png',
+            /*image_url: '../src/assets/imgs/covid.png',*/
             languages: ['Flutter', 'Dart'],
+          },
+          {
+            id: 2,
+            name: 'Feature extraction in snoRNAs using mathematical approach',
+            html_url: 'https://github.com/marcos-c1/tcc',
+            description: 'A binary classifier that classifies two groups of snoRNAs: C/D box and H/ACA box using mathematical extraction algorithms to define genome attributes.',
+            languages: ['Python', 'Bash'],
+          },
+          {
+            id: 3,
+            name: 'WhatsApp TUI',
+            html_url: 'https://github.com/marcos-c1/wpp',
+            description: 'An interactive terminal application consuming the whatsapp-web-js library to build a WhatsApp chat via the terminal.',
+            languages: ['JavaScript'],
+          },
+          {
+            id: 4,
+            name: 'INSS',
+            html_url: 'https://github.com/marcos-c1/inss',
+            description: 'An application that simulates the Legal Accruals System (SAL) of the Federal Revenue, which aims to calculate the social security contributions due, whether they are in arrears or not, of individual taxpayers affiliated as of 11/29/1999',
+            languages: ['Python', 'Django'],
+          },
+          {
+            id: 5,
+            name: 'Djikstra Visualizer',
+            html_url: 'https://github.com/marcos-c1/dijkstra-visualizer',
+            description: 'A Dijkstra\'s Algorithm Visualizer written in C using OpenGL graphics library.',
+            languages: ['C', 'Dockerfile', 'Makefile'],
           },
         ]
       ],
@@ -110,6 +138,10 @@ export default {
 
 <style scoped>
 
+main {
+  margin-bottom: 5em;
+}
+
 #list {
   list-style: none;
   display: flex;
@@ -141,6 +173,7 @@ export default {
 }
 
 #icon {
+  margin-top: 6px;
   border-radius: 5px;
   align-self: center;
 }
