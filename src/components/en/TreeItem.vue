@@ -1,10 +1,10 @@
 <template>
-  <div class="item"> 
+  <div class="item">
     <i>
       <slot name="icon"></slot>
     </i>
-    <div class="details" :id="title"> 
-      <h3> 
+    <div class="details" :id="title">
+      <h3>
         <slot name="heading"></slot>
       </h3>
       <p id="description">
@@ -15,13 +15,12 @@
 </template>
 
 <script setup lang="ts">
- const prop = defineProps({
- title: String,
- })
+const prop = defineProps({
+  title: String,
+})
 </script>
 
 <style scoped>
-
 .item {
   margin: 0 15em;
   height: 250px;
@@ -78,6 +77,32 @@ h3 {
     height: 50px;
   }
 
+  .item {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .item:nth-child(even)>i {
+    left: 0 !important;
+    right: -26px;
+    justify-self: flex-end;
+  }
+
+  .item:nth-child(odd)>i {
+    left: -26px !important;
+    justify-self: flex-start;
+  }
+
+  .item:nth-child(even):before,
+  .item:nth-child(even):after {
+    left: 0 !important;
+    right: 0px;
+    justify-self: flex-end;
+  }
+
+  .item:nth-child(even) {
+    padding: 0.4rem 5em 0rem 2em
+  }
+
   .item:before {
     content: ' ';
     border-left: 1px solid var(--color-border);
@@ -93,8 +118,9 @@ h3 {
     position: absolute;
     left: 0;
     top: calc(50% + 25px);
-    height: 100%;
+    height: 100px;
   }
+
   .item:first-of-type:before {
     display: none;
   }
@@ -102,21 +128,26 @@ h3 {
   .item:last-of-type:after {
     display: none;
   }
+
+  .item:last-of-type {
+    border-bottom: none;
+  }
 }
 
-@media(max-width: 1200px){
+@media(max-width: 1200px) {
   #title {
     font-size: 0.9em;
     color: var(--color-heading);
   }
-  
+
   .item {
     margin: 0 10em;
     height: 250px;
   }
+
   p {
     font-size: 0.9em;
-  }  
+  }
 }
 
 @media(max-width: 1024px) {
@@ -125,29 +156,30 @@ h3 {
   }
 }
 
-@media(max-width: 900px){
+@media(max-width: 900px) {
   #description {
     font-size: 0.9em;
   }
+
   .item {
     margin: 0 5em;
   }
 
 }
 
-@media(max-width: 800px){
+@media(max-width: 800px) {
   #description {
     font-size: 0.9em;
   }
 }
 
-@media(max-width: 670px){
+@media(max-width: 670px) {
   .item {
     margin: 4em;
   }
 }
 
-@media(max-width: 500px){
+@media(max-width: 500px) {
   .item {
     margin-top: 10em;
   }
@@ -157,7 +189,7 @@ h3 {
   }
 }
 
-@media(max-width: 450px){
+@media(max-width: 450px) {
   .item {
     margin-top: 20em;
   }
@@ -166,12 +198,12 @@ h3 {
     margin-bottom: 10em;
   }
 
-  .item:first-child{
+  .item:first-child {
     margin-top: 10em;
   }
 }
 
-@media(max-width: 350px){
+@media(max-width: 350px) {
   .item {
     margin-top: 40em;
   }
@@ -180,5 +212,4 @@ h3 {
     margin-bottom: 20em;
   }
 }
-
 </style>
