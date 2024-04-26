@@ -26,8 +26,8 @@ export default {
       tabs: [
         {
           id: 0,
-          name: 'Personal', 
-          active: true 
+          name: 'Personal',
+          active: true
         },
         {
           id: 1,
@@ -40,74 +40,85 @@ export default {
           {
             id: 0,
             name: 'Notes',
+            git_url: 'https://github.com/marcos-c1/notes',
             html_url: 'https://notes-frontend-jet.vercel.app/',
             description: 'A full-stack application made in Tauri, NodeJS, TypeScript, React, MongoDB. All notes, with Markdown syntax support, are saved in a non-relational bank from a user account.',
-            /*image_url: '../src/assets/imgs/notes.png',*/
+            image_url: 'https://raw.githubusercontent.com/marcos-c1/notes/dev/notes.png',
             languages: ['Typescript', 'React', 'MongoDB'],
           },
           {
             id: 1,
             name: 'COVID-19 Tracker',
+            git_url: 'https://github.com/marcos-c1/covid_app',
             html_url: 'https://marcos-c1.github.io/covid-app-io/',
             description: 'An informative application about the incidence of COVID-19 disease in Brazilian states.',
-            /*image_url: '../src/assets/imgs/covid.png',*/
+            image_url: 'https://raw.githubusercontent.com/marcos-c1/covid_app/main/app.png',
             languages: ['Flutter', 'Dart'],
           },
           {
             id: 2,
             name: 'Feature extraction in snoRNAs using mathematical approach',
-            html_url: 'https://github.com/marcos-c1/tcc',
+            git_url: 'https://github.com/marcos-c1/tcc',
             description: 'A binary classifier that classifies two groups of snoRNAs: C/D box and H/ACA box using mathematical extraction algorithms to define genome attributes.',
             languages: ['Python', 'Bash'],
           },
           {
             id: 3,
             name: 'WhatsApp TUI',
-            html_url: 'https://github.com/marcos-c1/wpp',
+            git_url: 'https://github.com/marcos-c1/wpp',
             description: 'An interactive terminal application consuming the whatsapp-web-js library to build a WhatsApp chat via the terminal.',
             languages: ['JavaScript'],
           },
           {
             id: 4,
+            name: 'Pomodoro\'s TUI',
+            git_url: 'https://github.com/marcos-c1/pomotui',
+            description: 'A pomodoro TUI with user notification to monitorate each pomo cycle.',
+            image_url: 'https://raw.githubusercontent.com/marcos-c1/pomotui/main/img/pomo.png',
+            languages: ['Bash'],
+          },
+          {
+            id: 5,
             name: 'INSS',
-            html_url: 'https://github.com/marcos-c1/inss',
+            git_url: 'https://github.com/marcos-c1/inss',
             description: 'An application that simulates the Legal Accruals System (SAL) of the Federal Revenue, which aims to calculate the social security contributions due, whether they are in arrears or not, of individual taxpayers affiliated as of 11/29/1999',
             languages: ['Python', 'Django'],
           },
           {
-            id: 5,
-            name: 'Djikstra Visualizer',
-            html_url: 'https://github.com/marcos-c1/dijkstra-visualizer',
+            id: 6,
+            name: 'Djikstra\'s Visualizer',
+            git_url: 'https://github.com/marcos-c1/dijkstra-visualizer',
             description: 'A Dijkstra\'s Algorithm Visualizer written in C using OpenGL graphics library.',
+            image_url: 'https://raw.githubusercontent.com/marcos-c1/dijkstra-visualizer/main/img/dijkstra.png',
             languages: ['C', 'Dockerfile', 'Makefile'],
           },
         ]
       ],
     }
   },
-  created: async function(){
-    this.repos[this.pagination-1] = await api.fetchRepos()
+  created: async function () {
+    this.repos[this.pagination - 1] = await api.fetchRepos()
   },
   methods: {
     async fetchRepo() {
       this.pagination += 1
       const data = await api.fetchReposByPagination(this.pagination)
-      if(data.length > 0){
-        this.repos[this.pagination-1] = data
+      if (data.length > 0) {
+        this.repos[this.pagination - 1] = data
       } else {
         this.pagination -= 1
         this.limit = this.pagination
       }
     },
-    fetchRepoBack(){
+    fetchRepoBack() {
       this.pagination -= 1
     },
     isActive(index) {
-      if(!this.tabs[index].active){
-        const resetIndex = index == 1 ? index-1 : index+1
-        this.tabs[resetIndex].active = false 
+      if (!this.tabs[index].active) {
+        const resetIndex = index == 1 ? index - 1 : index + 1
+        this.tabs[resetIndex].active = false
         this.currentTab = index
-        this.tabs[index].active = !this.tabs[index].active 
+        this.tabs[index].active = !this.tabs[index].active
       }
     }
   }
@@ -116,28 +127,29 @@ export default {
 
 <template>
   <Menu />
-    <main>
-      <h1 id="title">Projects</h1>
-      <ul id="list">
-        <Tab :title="tab.name" v-for="(tab, index) in tabs" :key="index" :class="tab.active  ? 'active' : ''" @click="isActive(index)"/>
-      </ul>
-      <span class="error-limit" v-if="limit == pagination">No more projects to be fetched.</span>
-      <Card :paginator="currentTab === 0 ? 0 : pagination-1" :repos="currentTab === 0 ? projects : repos"/> 
-      <div id="paginator" v-if="currentTab === 1">
-        <i v-if="pagination !== 1" @click="fetchRepoBack">
-          <ArrowLeft id="icon"/>
-        </i>
-        <span>{{ pagination }}</span>
-        <i @click="fetchRepo" v-if="!limit || limit != pagination">
-          <ArrowRight id="icon" />
-        </i>
-      </div>
-    </main>
-  <Footer style="margin-top: 5em;"/>
+  <main>
+    <h1 id="title">Projects</h1>
+    <ul id="list">
+      <Tab :title="tab.name" v-for="(tab, index) in tabs" :key="index" :class="tab.active ? 'active' : ''"
+        @click="isActive(index)" />
+    </ul>
+    <span class="error-limit" v-if="limit == pagination">No more projects to be fetched.</span>
+    <Card :isProject="currentTab === 0 ? true : false" :paginator="currentTab === 0 ? 0 : pagination - 1"
+      :repos="currentTab === 0 ? projects : repos" />
+    <div id="paginator" v-if="currentTab === 1">
+      <i v-if="pagination !== 1" @click="fetchRepoBack">
+        <ArrowLeft id="icon" />
+      </i>
+      <span>{{ pagination }}</span>
+      <i @click="fetchRepo" v-if="!limit || limit != pagination">
+        <ArrowRight id="icon" />
+      </i>
+    </div>
+  </main>
+  <Footer style="margin-top: 5em;" />
 </template>
 
 <style scoped>
-
 main {
   margin-bottom: 5em;
 }
@@ -150,24 +162,24 @@ main {
   margin-bottom: 2em;
 }
 
-#list > li:hover {
+#list>li:hover {
   cursor: pointer;
 }
 
-#list > li {
+#list>li {
   margin-right: 2em;
 }
 
 .active {
-  border-bottom: 3px solid var(--color-secondary); 
+  border-bottom: 3px solid var(--color-secondary);
 }
 
 .error-limit {
-  color: red; 
-  font-size: 1.2em; 
-  margin-top: 1em; 
-  margin-bottom: 1em; 
-  display:table;
+  color: red;
+  font-size: 1.2em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  display: table;
   margin-left: auto;
   margin-right: auto;
 }
@@ -198,10 +210,10 @@ main {
   font-size: 1.2em;
   color: var(--color-secondary);
 }
+
 #title {
   color: var(--color-heading);
   text-align: center;
   padding: 1em 0;
 }
-
 </style>
