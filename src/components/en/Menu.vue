@@ -116,7 +116,7 @@ export default {
     </div>
     <div id="links">
       <RouterLink to="/en">Home</RouterLink>
-      <RouterLink to="/en/about">About</RouterLink>
+      <RouterLink to="/en/about">About me</RouterLink>
       <RouterLink to="/en/projects">Projects</RouterLink>
       <RouterLink to="/en/resume">Curriculum</RouterLink>
     </div>
