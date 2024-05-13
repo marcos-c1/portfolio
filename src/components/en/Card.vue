@@ -17,10 +17,8 @@
   </div>
   <div id="container" v-if="isProject">
     <div id="container__flex__col" v-for="r in repos[paginator]" :key="r.id">
-      <div id="card__projects" :style="{
-        backgroundImage: `url(${r.image_url})`,
-        backgroundRepeat: 'round',
-      }" @click="openProject(r.html_url)">
+      <div id="card__projects" 
+      @click="openProject(r.html_url)">
         <h2 v-if="r.name">
           {{ r.name }}
         </h2>

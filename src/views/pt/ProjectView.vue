@@ -59,6 +59,7 @@ export default {
             id: 2,
             name: 'Extração de Características em snoRNAs usando modelos matemáticos',
             git_url: 'https://github.com/marcos-c1/tcc',
+            html_url: 'https://tcc-iota-six.vercel.app/',
             description: 'Um classificador binário que classifica dois grupos de snoRNAs: C/D box e H/ACA box utilizando algoritmos de extrações matemáticos para a definição de atributos dos genomas.',
             languages: ['Python', 'Bash'],
           },

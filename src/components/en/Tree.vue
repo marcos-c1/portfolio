@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import TreeItem from './TreeItem.vue'
+import TCUIcon from './../icons/IconTcu.vue'
+import CaronasIcon from './../icons/IconCaronas.vue'
+import EBSERHIcon from './../icons/IconEbserh.vue'
+import MPDFTIcon from './../icons/IconMpdft.vue'
 import DocumentationIcon from './../icons/IconDocumentation.vue'
 import ToolingIcon from './../icons/IconTooling.vue'
 import EcosystemIcon from './../icons/IconEcosystem.vue'
@@ -13,7 +17,7 @@ import SupportIcon from './../icons/IconSupport.vue'
   <div id="container"> 
     <TreeItem title="experience-1">
       <template #icon>
-        <ToolingIcon />
+        <MPDFTIcon/>
       </template>
       <template #heading>Experience</template>
 
@@ -28,7 +32,7 @@ import SupportIcon from './../icons/IconSupport.vue'
 
     <TreeItem title="experience-2">
       <template #icon>
-        <ToolingIcon/>
+        <EBSERHIcon/>
       </template>
 
       <h4>Brazilian Hospital Services Company (EBSERH)</h4>
@@ -39,7 +43,7 @@ import SupportIcon from './../icons/IconSupport.vue'
     
     <TreeItem title="experience-3">
       <template #icon>
-        <ToolingIcon/>
+        <TCUIcon />
       </template>
 
       <h4>Federal Audit Court (TCU)</h4>
@@ -50,7 +54,7 @@ import SupportIcon from './../icons/IconSupport.vue'
 
     <TreeItem title="experience-4">
       <template #icon>
-        <ToolingIcon />
+        <CaronasIcon />
       </template>
 
       <h4>Caronas Buruger</h4>
