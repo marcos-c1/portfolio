@@ -146,7 +146,7 @@ button {
   border-radius: 8px;
   border: 1px solid var(--color-border);
   width: 400px;
-  height: 400px;
+  min-height: 400px; 
 }
 
 #card:hover,
